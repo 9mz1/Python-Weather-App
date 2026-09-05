@@ -22,17 +22,16 @@ def display_data(data):
     print("-------------------------")
     print(data["address"].upper())
     print("-------------------------")
+    print("******************************************")
     print(f'Temperature: {data["currentConditions"]["temp"]}°C '
           f'\nPrecipitation Probability: {data["currentConditions"]["precipprob"]}% '
           f'\nHumidity: {data["currentConditions"]["humidity"]}% '
           f'\nCurrent Condition: {data["currentConditions"]["conditions"]} '
-          f'\n---------------------------------------')
+          f'\n******************************************')
 
 while True:
-   location = input("Enter City Name: ").strip().lower()
-   with open("data.json", "r") as f:
-       data = json.load(f)
-
-# data = fetch_data(location)
-   display_data(data)
-
+    location = input("Enter City Name: ").strip().lower()
+    # with open("data.json", "r") as f:
+    #     data = json.load(f)
+    data = fetch_data(location)
+    display_data(data)
